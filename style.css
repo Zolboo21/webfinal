@@ -10,7 +10,6 @@
   
   .bottom-navbar {
     height: 50px;
-    width: 100%;
     background-color: rgb(21, 101, 177);
     position: sticky;
     top: 0;
@@ -60,22 +59,40 @@
     background-color: #fff;
 }
 
-@media only screen and (nax-width: 1320px){
+@media only screen and (max-width: 1320px){
     header {
         padding: 0 50px;
     }
 }
-@media only screen and (nax-width: 1100px){
+@media only screen and (max-width: 1100px){
     header {
         padding: 0 30px;
     }
 }
-@media only screen and (nax-width: 900px){
+@media only screen and (max-width: 900px){
     .hamburger {
         display: block;
         cursor: pointer;
     }
     .hamburger .line{
-        
+        width: 30px;
+        height: 3px;
+        background : #fff;
+        margin: 6px 0;
     }
+    .nav-bar{
+        height: 450px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #000;
+        transition: 0.2s;
+    }
+    .nav-bar ul{
+        display: block;
+        width: fit-content;
+    }
+
 }
