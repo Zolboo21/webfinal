@@ -81,18 +81,40 @@
         margin: 6px 0;
     }
     .nav-bar{
-        height: 450px;
+        background-color: rgb(21, 101, 177);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+    
         position: absolute;
-        top: 80px;
+        top: 50px;
         left: 0;
         right: 0;
         width: 100vw;
-        background: #000;
+        height: 0;
         transition: 0.2s;
+        overflow: hidden;
+    }
+    .nav-bar.active{
+        height: 450px;
     }
     .nav-bar ul{
         display: block;
         width: fit-content;
+        margin: 80px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .nav-bar.active ul{
+        opacity: 1;
+    }
+
+    .nav-bar ul li a{
+        margin-bottom: 12px;
+        color:aqua
+
     }
 
 }
