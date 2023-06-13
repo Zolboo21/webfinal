@@ -146,7 +146,3 @@ fetch(url)
   .catch(error => {
     console.error('Error fetching earthquake data:', error);
   });
-
-  function showModal() {
-    document.getElementById("modalContainer").style.display = "block";
-  }
