@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Responsive Navbar</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+  <head>
+    <title>Earthquake Tracker</title>
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  </head>
+
 
 <body>
   
@@ -12,12 +26,8 @@
     <img src="icon-no.png" alt="icon" width="100">
     <div class="logo">Earthquake Tracker</div>
   </div>
-  
-  
-  
+
   <header class="bottom-navbar">
-    
-    
     <div class="hamburger">
       <div class="line"></div>
       <div class="line"></div>
@@ -27,29 +37,292 @@
       <nav class="nav-bar">
         <ul>
           <li>
-            <a href="" class="active">Home</a>
+            <a href="Homepage.html" class="active">Home</a>
           </li>
           <li>
-            <a href="">About</a>
+            <a href="navbar-html/about.html">About</a>
           </li>
           <li>
-            <a href="">Services</a>
+            <a href="navbar-html/map.html">Map</a>
           </li>
           <li>
-            <a href="">Contact</a>
+            <a href="navbar-html/resource.html">Resources</a>
+          </li>
+          <li>
+            <a href="navbar-html/faq.html">FAQ</a>
           </li>
         </ul>
       </nav>
-      
-    </header>
+  </header>
 
-    <script src="script.js"></script>
+    
+    
+  <div class="owl-carousel owl-theme">
+    <div class="slide slide-1">
+        <div class="slide-content">
+            <h1>Breaking News: Powerful Quake Strikes Pacific Rim</h1>
+            <p>Stay informed about the latest seismic activity along the Pacific Rim with our real-time earthquake data.</p>
+            <a href="slide1.html"> 
+              <button id="1st-slide-button">Read More</button>
+            </a>
+        </div>
+    </div>
+    <div class="slide slide-2">
+        <div class="slide-content">
+            <h1>Preparing for the Unexpected: Earthquake Safety Tips</h1>
+            <p>Discover essential safety measures and precautionary steps to take before, during, and after an earthquake to keep yourself and your loved ones safe.</p>
+            <a href="slide2.html"> 
+            <button id="2nd-slide-button">Read More</button>
+          </a>
+        </div>
+    </div>
+    <div class="slide slide-3">
+        <div class="slide-content">
+            <h1>Exploring Earth's Tremors: Unraveling the Science Behind Earthquakes</h1>
+            <p>Delve into the fascinating world of seismology and learn about the causes, effects, and ongoing research related to earthquakes worldwide.</p>
+            <a href="slide3.html"> 
+            <button id="3rd-slide-button">Read More</button>
+          </a>
+        </div>
+    </div>
+</div>
+
+<style>
+  /* Styles for the modal overlay */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  
+  /* Styles for the modal content */
+  .modal-content {
+    position: relative;
+    width: 400px;
+    max-width: 90%;
+    max-height: 90%;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow-y: auto;
+  }
+</style>
+
+<!--round block-->
+<div class="gradient-mask">
+  <div class="gradient-overlay"></div>
+  <div style="background-image: url('assets/space.jpg'); padding: 50px;border-radius: 50% 20% / 10% 40%;">
+    <div class="round-block" onclick="showModal()">
+      <h3>Did you feel the earthquake?</h3>
+    </div>
+  </div>
+</div>
+
+<div id="modalContainer" class="modal-overlay">
+  <div class="modal-content">
+    <h2>Earthquake Report</h2>
+    <form>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required><br><br>
+      
+      <label for="intensity">Intensity:</label>
+      <input type="text" id="intensity" name="intensity" required><br><br>
+      
+      <label for="damage">Damage (if any):</label>
+      <textarea id="damage" name="damage"></textarea><br><br>
+      
+      <label for="additionalInfo">Additional Information:</label>
+      <textarea id="additionalInfo" name="additionalInfo"></textarea><br><br>
+
+      <button type="button" onclick="hideModal()">Cancel</button>
+    
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function showModal() {
+    document.getElementById("modalContainer").style.display = "block";
+  }
+
+  function hideModal() {
+    document.getElementById("modalContainer").style.display = "none";
+  }
+</script>
+
+
+<!-- layer 2-->
+
+<div class="block" style="background-color: #33333327; border: 1px solid rgba(73, 73, 73, 0.038);">
+  <a href="navbar-html/resource.html">
+    <img src="assets/101.jpg" alt="Image 1" style="height: 200px; width: 100%;">
+    <div class="overlay"></div>
+    <h3>Earthquake 101</h3>
+    <p>What You Need to Know</p>
+  </a>
+</div>
+<div class="block" style="background-color: #33333327; border: 1px solid rgba(73, 73, 73, 0.038);">
+  <a href="slide2.html">
+    <img src="assets/tips.jpg" alt="Image 2">
+    <div class="overlay"></div>
+    <h3>Earthquake Tips</h3>
+    <p>Essential Safety Measures</p>
+  </a>
+</div>
+<div class="block" style="background-color: #33333327; border: 1px solid rgba(73, 73, 73, 0.038);">
+  <a href="earthquake-stories.html">
+    <img src="assets/story.jpg" alt="Image 3" style="height: 200px; width: 80%;">
+    <div class="overlay"></div>
+    <h3>Earthquake Stories</h3>
+    <p>Unforgettable Experiences</p>
+  </a>
+</div>
+
     
 
-  <div class="content">
-    <!-- Page content goes here -->
-        
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Post starts from here     -->
+
+    <div class="container2">
+      <div class="main-post">
+        <div class="post" style="height: 550px;">
+          <header style="padding: 10px; background-color: #88a7cf; color: #333; font-size: 24px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; margin-bottom: 50px;">Real-time Earthquake Tracker</header>
+          <div id="map" style="border: 1px solid #88a7cf;"></div>
+        </div>
+      </div>
+      <div class="sub-posts">
+        <div class="post">
+          <h2>Breaking News: </h2>
+          <h3>
+            <a href="slide1.html">Strong Earthquake Strikes Coastal Region</a>
+          </h3>
+          <a href="slide1.html">
+            <img src="/assets/breaking.jpg" style="width: 200px;" alt="Post 2 Image">
+          </a>
+        </div>
+        <div class="post">
+          <h2>Latest Updates: </h2>
+          <h3>
+            <a href="/navbar-html/map.html">Earthquake Swarm Detected in Fault Zone</a>
+          </h3>
+          <a href="/navbar-html/map.html">
+            <img src="assets/swarm.jpg" style="width: 200px;" alt="Post 3 Image">
+          </a>
+        </div>
+      </div>
+      
+    </div>
+    
+
+
+
+
+
+
+
+    <div class="earthquake-info">
+      <div>
+        <h2>QuakeTracker: Real-time Earthquake Updates</h2>
+        <ul>
+          <li onclick="showNewsText(this, 'San Francisco, CA', 'Magnitude: 6.2', 'Date: June 10, 2023');" class="selected">
+            <span class="location">San Francisco, CA</span><br>
+            Magnitude: <span class="magnitude">6.2</span><br>
+            Date: <span class="date">June 10, 2023</span>
+          </li>
+          <li onclick="showNewsText(this, 'Tokyo, Japan', 'Magnitude: 5.8', 'Date: June 11, 2023')">
+            <span class="location">Tokyo, Japan</span><br>
+            Magnitude: <span class="magnitude">5.8</span><br>
+            Date: <span class="date">June 11, 2023</span>
+          </li>
+          <li onclick="showNewsText(this, 'Mexico City, Mexico', 'Magnitude: 7.1', 'Date: June 12, 2023')">
+            <span class="location">Mexico City, Mexico</span><br>
+            Magnitude: <span class="magnitude">7.1</span><br>
+            Date: <span class="date">June 12, 2023</span>
+          </li>
+          <li onclick="showNewsText(this, 'Seattle, WA', 'Magnitude: 9.0', 'Date: June 13, 2023')">
+            <span class="location">Seattle, WA</span><br>
+            Magnitude: <span class="magnitude">9.0</span><br>
+            Date: <span class="date">June 13, 2023</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+      <p>&copy; 2023 Your Website. All rights reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
+
+
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Custom Scripts -->
+<script src="script.js"></script>
+
+
+
 </body>
 </html>

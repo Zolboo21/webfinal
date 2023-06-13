@@ -1,7 +1,20 @@
+body {
+  background-color: #fefefe;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+/* navbar*/
+
 .top-navbar {
     height: 100px;
     width: 100%;
-    background-color: rgb(61, 139, 211);
+    background-color: rgb(2, 118, 255);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,8 +22,9 @@
   }
   
   .bottom-navbar {
+    z-index: 1000;
     height: 50px;
-    background-color: rgb(21, 101, 177);
+    background-color: rgb(0, 78, 158);
     position: sticky;
     top: 0;
     display: flex;
@@ -21,12 +35,7 @@
   
   .bottom-navbar.transparent {
     background-color: rgba(21, 101, 177, 0.8);
-  }
-  
-  body {
-    background-color: #fefefe;
-    margin: 0;
-    padding: 0;
+    backdrop-filter: blur(20px);
   }
 
 .logo{
@@ -42,6 +51,7 @@
     list-style-type: none;
 }
 .nav-bar ul li a{
+    text-decoration: none;
     display: block;
     color: #fff;
     font-size: 20px;
@@ -52,11 +62,10 @@
 }
 .nav-bar ul li a:hover{
     color: #000;
-    background-color: #fff;
+
 }
 .nav-bar ul li a.active{
     color: #000;
-    background-color: #fff;
 }
 
 @media only screen and (max-width: 1320px){
@@ -118,3 +127,347 @@
     }
 
 }
+
+
+  
+ 
+  /* Post layout */
+
+.container2 {
+  margin: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main-post {
+  flex-basis: 70%;
+}
+
+.small-post{
+  flex-basis: 30%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .container2 {
+    flex-direction: column;
+  }
+
+  .main-post,
+  .sub-posts {
+    flex-basis: 100%;
+  }
+}
+.post {
+  margin-right: 50px;
+  background-color: #45454518;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.post h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.post a {
+  text-decoration: none;
+  color: #333333;
+}
+.post p {
+  margin-bottom: 15px;
+}
+.read-more {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #0278ff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+.read-more:hover {
+  background-color: #015fe6;
+}
+
+
+
+
+/* ows carausel slider */
+
+.owl-carousel {
+  width: 100%;
+  height: 80vh;
+}
+
+.slide {
+  width: 100%;
+  height:  80vh;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:  80vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+ 
+.slide-1 {
+  background-image: url(/assets/bg-1.jpg);
+}
+
+.slide-2 {
+  background-image: url(assets/bg-2.jpg);
+}
+
+.slide-3 {
+  background-image: url(assets/bg-3.jpg);
+}
+
+.slide-content {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  padding: 0 20%;
+}
+
+.slide-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 45px;
+  text-transform: uppercase;
+}
+
+.slide-content p {
+  font-family: "Lato", serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.slide-content button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: bolder;
+  padding: 10px 25px;
+  border: none;
+  background: #ffffff5c;
+  border-radius: 10% 10% 10% 10%;
+}
+
+.slide-content button:hover {
+  background: #ffffff90;
+  color: #000;
+  transition: 0.3s;
+}
+
+.owl-dots {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 1%;
+}
+
+.owl-dots span {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.owl-dots button {
+  border: none !important;
+  outline: none !important;
+}
+
+.owl-nav button {
+  border: none !important;
+  outline: none !important;
+}
+
+.owl-prev, .owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff !important;
+  font-size: 65px !important;
+  font-weight: bolder !important;
+  background:none !important;
+}
+
+.owl-prev {
+  left: 1%;
+}
+
+.owl-next {
+  right: 1%;
+}
+
+/*footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*footer end */
+
+/*layer 2 */
+.block {
+  display: inline-block;
+  border-radius: 30px;
+  width: 30%;
+  position: relative;
+  margin: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.block img {
+  max-width: 100%;
+  height: auto;
+}
+
+.block .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 23, 22, 0.335);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.block:hover .overlay {
+  opacity: 1;
+}
+
+.block h3,
+.block p {
+  position: relative;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  transition: transform 0.3s;
+}
+
+.block:hover h3 {
+  transform: translateY(-280%);
+}
+
+.block:hover p {
+  transform: translateY(-250%);
+}
+
+@media screen and (max-width: 768px) {
+  .block {
+      width: 100%;
+  }
+}
+
+/*layer 2 end */
+
+/*round block */
+
+.round-block {
+  width: 200px;
+  height: 200px;
+  background-image: url('/assets/earth.gif');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  padding-top: 70px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.round-block:hover {
+  transform: scale(1.2);
+}
+
+.round-block h3 {
+  margin: 0;
+}
+@keyframes spin {
+  0% {
+      transform: rotate(0);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* earthquake info iframe*/
+.earthquake-info {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.earthquake-info h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.earthquake-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.earthquake-info li {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.earthquake-info .location {
+  font-weight: bold;
+}
+
+.earthquake-info .magnitude {
+  color: #e66767;
+  font-weight: bold;
+}
+
+.earthquake-info .date {
+  color: #999;
+  font-size: 12px;
+}
+
+
+
+#map {
+  height: 400px;
+}
+
+
+

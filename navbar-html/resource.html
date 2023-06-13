@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    
+        .footer {
+            margin-top: auto;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="top-navbar">
+        <img src="/icon-no.png" alt="icon" width="100">
+        <div class="logo">Earthquake Tracker</div>
+      </div>
+    
+      <header class="bottom-navbar">
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        
+          <nav class="nav-bar">
+            <ul>
+              <li>
+                <a href="/Homepage.html" >Home</a>
+              </li>
+              <li>
+                <a href="about.html">About</a>
+              </li>
+              <li>
+                <a href="map.html">Map</a>
+              </li>
+              <li>
+                <a href="resource.html" class="active">Resources</a>
+              </li>
+              <li>
+                <a href="faq.html">FAQ</a>
+              </li>
+            </ul>
+          </nav>
+      </header>
+    
+      <style>
+        main {
+          padding: 40px;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+      
+        section {
+          margin-bottom: 60px;
+          border-radius: 8px;
+          background-color: #cccccc;
+          padding: 30px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out;
+        }
+      
+        section:hover {
+          transform: scale(1.02);
+        }
+      
+        section h2 {
+          font-size: 28px;
+          margin-bottom: 20px;
+          color: #333;
+        }
+      
+        section p {
+          margin-bottom: 20px;
+          color: #555;
+        }
+      
+        section ul,
+        section ol {
+          margin-bottom: 30px;
+          color: #555;
+        }
+      
+      
+        /* Media Queries */
+        @media (max-width: 768px) {
+          section {
+            padding: 20px;
+          }
+      
+          section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+          }
+      
+          section p {
+            margin-bottom: 15px;
+          }
+      
+          section ul,
+          section ol {
+            margin-bottom: 15px;
+          }
+        }
+        
+      </style>
+
+      
+      <main>
+        <section id="earthquake-basics">
+          <h2>Earthquake Basics</h2>
+          <p>An earthquake is a natural phenomenon characterized by a sudden and violent shaking of the ground. It occurs when there is a release of energy in the Earth's crust, resulting in seismic waves.</p>
+          <p>Key information about earthquakes:</p>
+          <ul>
+            <li><strong>Causes:</strong> Earthquakes are primarily caused by the movement of tectonic plates, volcanic activity, or human activities such as mining or reservoir-induced seismicity.</li>
+            <li><strong>Effects:</strong> Earthquakes can lead to various effects, including ground shaking, surface rupture, landslides, tsunamis, and secondary hazards like fires or gas leaks.</li>
+            <li><strong>Measuring Earthquakes:</strong> Earthquakes are measured using seismographs, and their magnitude is quantified on the Richter scale or moment magnitude scale (Mw).</li>
+            <li><strong>Earthquake Zones:</strong> Certain regions, known as seismic zones, are more prone to earthquakes due to the interaction of tectonic plates.</li>
+          </ul>
+        </section>
+      
+
+          
+          
+      
+        <section id="safety-preparedness">
+          <h2>Safety Preparedness</h2>
+          <p>Ensure your safety and the safety of others by following these earthquake preparedness measures:</p>
+          <ol>
+            <li><strong>Create an Emergency Kit:</strong> Prepare a well-stocked kit with essential supplies such as water, non-perishable food, flashlight, batteries, first aid supplies, and a portable radio.</li>
+            <li><strong>Develop an Emergency Plan:</strong> Make a family emergency plan, including a communication strategy and designated meeting places both inside and outside your home.</li>
+            <li><strong>Identify Safe Spots:</strong> Identify the safest spots in your home or workplace, such as under sturdy furniture or against an interior wall away from windows.</li>
+            <li><strong>Learn Proper Safety Techniques:</strong> Familiarize yourself with the "Drop, Cover, and Hold On" technique during an earthquake to protect yourself from falling objects.</li>
+            <li><strong>Secure Your Belongings:</strong> Secure heavy furniture, appliances, and valuable items to prevent them from toppling or causing injury during an earthquake.</li>
+          </ol>
+        </section>
+      
+        <section id="seismic-activity-monitoring">
+          <h2>Seismic Activity Monitoring</h2>
+          <p>Stay informed about seismic activity around the world through reliable monitoring resources:</p>
+          <ul>
+            <li><a href="https://www.example.com/live-earthquake-map" target="_blank">Live Earthquake Map</a>: Explore an interactive map displaying real-time earthquake data, including location, magnitude, and depth.</li>
+            <li><a href="https://www.example.com/seismic-networks" target="_blank">Seismic Monitoring Networks</a>: Access data and reports from renowned seismic monitoring organizations such as the United States Geological Survey (USGS) or the European-Mediterranean Seismological Centre (EMSC).</li>
+          </ul>
+        </section>
+      
+
+      </main>
+      
+      
+
+
+
+
+
+
+
+
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Custom Scripts -->
+<script src="/script.js"></script>
+
+
+</body>
+<footer class="footer">
+    <p>&copy; 2023 Your Website. All rights reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+</footer>
+</html>

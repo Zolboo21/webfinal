@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+#map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.container {
+  width: 30%;
+  height: 40%;
+  margin: 40px 0px 0px 22px;
+  position: absolute;
+  bottom: 5px;
+  z-index: 1;
+  margin-top: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.earthquake-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.earthquake-item {
+  margin-bottom: 10px;
+}
+
+.earthquake-title {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.earthquake-magnitude {
+  color: #888;
+}
+
+
+ </style>
+</head>
+<body>
+    <div class="top-navbar">
+        <img src="/icon-no.png" alt="icon" width="100">
+        <div class="logo">Earthquake Tracker</div>
+      </div>
+    
+      <header class="bottom-navbar">
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        
+          <nav class="nav-bar">
+            <ul>
+              <li>
+                <a href="/Homepage.html">Home</a>
+              </li>
+              <li>
+                <a href="about.html">About</a>
+              </li>
+              <li>
+                <a href="map.html"  class="active">Map</a>
+              </li>
+              <li>
+                <a href="resource.html">Resources</a>
+              </li>
+              <li>
+                <a href="faq.html">FAQ</a>
+              </li>
+            </ul>
+          </nav>
+      </header>
+
+
+    <div id="map"></div>
+    <div class="container">
+      <h3>Earthquake Informing Website</h3>
+      <ul class="earthquake-list"></ul>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+      const url1 = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=5';
+
+      fetch(url1)
+        .then(response => response.json())
+        .then(data => {
+          const earthquakes = data.features;
+
+          // Create a Leaflet map
+          const map = L.map('map').setView([0, 0], 2);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+          // Add markers for each earthquake
+          earthquakes.forEach(earthquake => {
+            const coordinates = earthquake.geometry.coordinates;
+            const magnitude = earthquake.properties.mag;
+            const title = earthquake.properties.place;
+            const marker = L.marker([coordinates[1], coordinates[0]]).addTo(map);
+            marker.bindPopup(`<strong>${title}</strong><br>Magnitude: ${magnitude}`);
+
+            // Display earthquake details in the list
+            const earthquakeList = document.querySelector('.earthquake-list');
+            const earthquakeItem = document.createElement('li');
+            earthquakeItem.classList.add('earthquake-item');
+            earthquakeItem.innerHTML = `
+              <div class="earthquake-title">${title}</div>
+              <div class="earthquake-magnitude">Magnitude: ${magnitude}</div>
+            `;
+            earthquakeList.appendChild(earthquakeItem);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching earthquake data:', error);
+        });
+    </script>
+
+<footer class="footer" style="position: fixed; bottom: 0; width: 100%;">
+    <p>&copy; 2023 Your Website. All rights reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+</footer>
+<!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<script src="/script.js"></script>
+</body>
+</html>
